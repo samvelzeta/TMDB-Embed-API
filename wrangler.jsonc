@@ -3,9 +3,13 @@
   "name": "tmdb-embed-api",
   "main": "./cloudflare-worker.js",
   "compatibility_date": "2026-09-28",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
   "secrets": {
-    "required": ["TMDB_API_KEY"]
+    "required": [
+      "TMDB_API_KEY"
+    ]
   },
   "containers": [
     {
@@ -18,7 +22,17 @@
   "migrations": [
     {
       "tag": "v1",
-      "new_sqlite_classes": ["TMDBEmbedContainer"]
+      "new_sqlite_classes": [
+        "TMDBEmbedContainer"
+      ]
     }
-  ]
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "TMDB_EMBED_CONTAINER",
+        "class_name": "TMDBEmbedContainer"
+      }
+    ]
+  }
 }
