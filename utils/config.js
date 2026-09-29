@@ -86,7 +86,7 @@ function normalizeConfig(base) {
     else cfg.tmdbApiKeys = [];
   }
   // If user explicitly cleared tmdbApiKeys via override, also clear legacy single key so it is not shown
-  if (explicitEmptyKeys) {
+  if (explicitEmptyKeys && !process.env.TMDB_API_KEY) {
     cfg.tmdbApiKey = null;
   }
   // Ensure dedupe + trim
